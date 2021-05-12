@@ -17,7 +17,7 @@ INSERT INTO tb_movie(title, sub_title, year,img_url,synopsis, genre_id) VALUES (
 INSERT INTO tb_movie(title, sub_title, year,img_url,synopsis, genre_id) VALUES ('Guardiões da Galáxia', '',2014, 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/i34ijHY5hr52uYcKZ48wq7K6yUs.jpg', 'O aventureiro do espaço Peter Quill torna-se presa de caçadores de recompensas depois que rouba a esfera de um vilão traiçoeiro, Ronan. Para escapar do perigo, ele faz uma aliança com um grupo de quatro extraterrestres. Quando Quill descobre que a esfera roubada possui um poder capaz de mudar os rumos do universo, ele e seu grupo deverão proteger o objeto para salvar o futuro da galáxia.', 1);
 
 INSERT INTO tb_user(name, email, password) VALUES('Bob','bob@gmail.com', '$2y$12$x/p0FcLJlHjv9TRL2J/Ox.3RvaIL8PHHV1NP7f3Ijqb49Pso4X1Xy');
-INSERT INTO tb_user(name, email, password) VALUES('Ana','ana@gmail', '$2y$12$x/p0FcLJlHjv9TRL2J/Ox.3RvaIL8PHHV1NP7f3Ijqb49Pso4X1Xy');
+INSERT INTO tb_user(name, email, password) VALUES('Ana','ana@gmail.com', '$2y$12$x/p0FcLJlHjv9TRL2J/Ox.3RvaIL8PHHV1NP7f3Ijqb49Pso4X1Xy');
 
 INSERT INTO tb_role (authority) VALUES('ROLE_VISITOR');
 INSERT INTO tb_role (authority) VALUES('ROLE_MEMBER');
