@@ -1,8 +1,6 @@
 package com.devsuperior.movieflix.services;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,13 +28,6 @@ public class MovieService {
 		Genre genre = genreId == 0 ? null : genreRepository.getOne(genreId);
 		Page<Movie> result = repository.find(genre, pageRequest);
 		return result.map(movie -> new MovieDTO(movie));
-	}
-	
-	@Transactional(readOnly = true)
-	public List<MovieDTO> findAll(Long genreId){
-		Genre genre = genreId == 0 ? null : genreRepository.getOne(genreId);
-		List<Movie> result = repository.findAll(genre);
-		return result.stream().map(movie -> new MovieDTO(movie)).collect(Collectors.toList());
 	}
 	
 	@Transactional(readOnly = true)

@@ -1,7 +1,5 @@
 package com.devsuperior.movieflix.resources;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,26 +21,20 @@ public class MovieResource {
 	@Autowired
 	private MovieService service;
 	
-//	@GetMapping
-//	public ResponseEntity<Page<MovieDTO>> findAllPaged(
-//			@RequestParam(value = "genreId", defaultValue = "0") Long genreId,
-//			@RequestParam(value = "name", defaultValue = "") String name,
-//			@RequestParam(value = "page", defaultValue = "0") Integer page,
-//			@RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
-//			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
-//			@RequestParam(value = "orderBy", defaultValue = "name") String orderBy
-//			){
-//		
-//		PageRequest pageRequest = PageRequest.of(page, linesPerPage,Direction.valueOf(direction) ,orderBy);
-//		Page<MovieDTO> result = service.findAllPaged(pageRequest, genreId);
-//		return ResponseEntity.ok().body(result); 
-//		
-//	}
-	
 	@GetMapping
-	public ResponseEntity<List<MovieDTO>> findAll(@RequestParam(value = "genreId", defaultValue = "0") Long genreId){
-		List<MovieDTO> result = service.findAll(genreId);
-		return ResponseEntity.ok().body(result);
+	public ResponseEntity<Page<MovieDTO>> findAllPaged(
+			@RequestParam(value = "genreId", defaultValue = "0") Long genreId,
+			@RequestParam(value = "name", defaultValue = "") String name,
+			@RequestParam(value = "page", defaultValue = "0") Integer page,
+			@RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
+			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
+			@RequestParam(value = "orderBy", defaultValue = "name") String orderBy
+			){
+		
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage,Direction.valueOf(direction) ,orderBy);
+		Page<MovieDTO> result = service.findAllPaged(pageRequest, genreId);
+		return ResponseEntity.ok().body(result); 
+		
 	}
 	
 	@GetMapping(value = "/{id}")
