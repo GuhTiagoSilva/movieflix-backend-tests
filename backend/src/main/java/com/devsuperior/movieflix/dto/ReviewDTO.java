@@ -13,7 +13,7 @@ public class ReviewDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	
-	@NotBlank
+	@NotBlank(message = "Não é permitido inserir um texto vazio na avlaiação")
 	private String text; 
 	private Long movieId;
 	private UserDTO user;
